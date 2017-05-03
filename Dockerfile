@@ -16,5 +16,7 @@ COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/net_speeder
 
+ENV CMD_ARGS ${CMD_ARGS}
+
 # Configure container to run as an executable
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["/usr/local/bin/entrypoint.sh","${CMD_ARGS}"]
